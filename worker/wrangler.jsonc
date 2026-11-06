@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "phalanx",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "build": {
+    "command": "node scripts/build.js"
+  },
+  // Every valid answer is a static file in public/ (served free, no Worker
+  // invocation). Anything else falls through to the Worker.
+  // Don't enable Workers Cache: it makes static asset requests billable.
+  "assets": {
+    "directory": "public",
+    "html_handling": "none",
+    "not_found_handling": "none"
+  },
+  // Only Worker invocations are logged (static asset hits aren't), so this
+  // stays well under the free plan's daily log event limit.
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    }
+  },
+  "vars": {
+    // Set to your ko-fi / GitHub Sponsors / etc. URL to show a tip link
+    // on the landing and error pages. Leave empty to hide it.
+    "TIP_URL": ""
+  }
+}

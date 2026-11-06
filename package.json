@@ -4,6 +4,11 @@
   "description": "A small, no-dependency lib for converting to and from roman numerals",
   "main": "romans.js",
   "types": "romans.d.ts",
+  "files": [
+    "romans.js",
+    "romans.d.ts",
+    "logo.png"
+  ],
   "repository": "git@github.com:qbunt/romans.git",
   "keywords": [
     "roman",
